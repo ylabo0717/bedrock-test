@@ -1,9 +1,10 @@
 import boto3
+
 from typing import Dict, Any
 
-client = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
 
 def get_streaming_response(prompt: str) -> Dict[str, Any]:
+    client = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
     return client.converse_stream(
         modelId="apac.anthropic.claude-3-5-sonnet-20241022-v2:0",
         messages=[
