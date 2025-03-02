@@ -1,0 +1,80 @@
+## Setup Bedrock
+
+Activate the Bedrock LLM model on AWS.
+
+![](../images/aws_bedrock_001.png)
+
+![](../images/aws_bedrock_002.png)
+
+![](../images/aws_bedrock_003.png)
+
+
+## Create a policy
+
+Create a policy with the following permissions:
+
+``` json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "bedrock:InvokeModelWithResponseStream",
+            "Resource": [
+                "arn:aws:bedrock:*:*:inference-profile/*",
+                "arn:aws:bedrock:*::foundation-model/*"
+            ]
+        }
+    ]
+}
+```
+
+![](../images/aws_bedrock_004.png)
+
+![](../images/aws_bedrock_005.png)
+
+## Create a role and attach the policy
+
+Create a role and attach the policy created in the previous step.
+
+![](../images/aws_bedrock_006.png)
+
+![](../images/aws_bedrock_007.png)
+
+![](../images/aws_bedrock_008.png)
+
+![](../images/aws_bedrock_009.png)
+
+## Get the credentials
+
+Get the credentials for the role created in the previous step.
+
+![](../images/aws_bedrock_010.png)
+
+![](../images/aws_bedrock_011.png)
+
+
+![](../images/aws_bedrock_012.png)
+
+![](../images/aws_bedrock_013.png)
+
+
+![](../images/aws_bedrock_014.png)
+
+## Install AWS CLI
+
+Install the AWS CLI by following the instructions at:
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+## AWS Configuration
+
+Configure the AWS CLI with the credentials obtained in the previous step.
+
+``` bash
+aws configure
+```
+
+![](../images/aws_bedrock_015.png)
+
