@@ -4,6 +4,8 @@ This is a test program for Bedrock.
 
 ## Setup Bedrock
 
+Please follow the instructions at
+
 [setup_bedrock.md](./docs/setup_bedrock.md)
 
 ## Environment Setup
