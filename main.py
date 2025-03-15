@@ -1,12 +1,17 @@
 import boto3
-
+import os
 from typing import Dict, Any
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def get_streaming_response(prompt: str) -> Dict[str, Any]:
-    client = boto3.client("bedrock-runtime", region_name="ap-northeast-1")
+    region_name = os.getenv("AWS_REGION", "ap-northeast-1")
+    model_id = os.getenv("BEDROCK_MODEL_ID", "apac.anthropic.claude-3-5-sonnet-20241022-v2:0")
+    
+    client = boto3.client("bedrock-runtime", region_name=region_name)
     return client.converse_stream(
-        modelId="apac.anthropic.claude-3-5-sonnet-20241022-v2:0",
+        modelId=model_id,
         messages=[
             {
                 "role": "user",
