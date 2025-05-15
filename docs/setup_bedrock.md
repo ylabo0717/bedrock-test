@@ -62,19 +62,14 @@ Get the credentials for the role created in the previous step.
 
 ![](../images/aws_bedrock_014.png)
 
-## Install AWS CLI
+## Create a `.env` file
 
-Install the AWS CLI by following the instructions at:
-
-https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
-
-## AWS Configuration
-
-Configure the AWS CLI with the credentials obtained in the previous step.
+Create a `.env` file in the project root with your AWS credentials:
 
 ``` bash
-aws configure
+AWS_ACCESS_KEY_ID=your_access_key_here
+AWS_SECRET_ACCESS_KEY=your_secret_key_here
+AWS_REGION=ap-northeast-1
+BEDROCK_MODEL_ID=apac.anthropic.claude-3-5-sonnet-20241022-v2:0
 ```
-
-![](../images/aws_bedrock_015.png)
 
