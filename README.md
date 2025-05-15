@@ -13,16 +13,19 @@ Please follow the instructions at
 1. Create a `.env` file in the project root with your AWS credentials:
 
 ```env
-AWS_ACCESS_KEY_ID=your_access_key_here
-AWS_SECRET_ACCESS_KEY=your_secret_key_here
-AWS_REGION=ap-northeast-1
-BEDROCK_MODEL_ID=apac.anthropic.claude-3-5-sonnet-20241022-v2:0
+# AWS region where Bedrock is available
+AWS_REGION=your_aws_region
+
+# AWS credentials (if not using shared config/profile)
+AWS_ACCESS_KEY_ID=your_access_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_access_key
+AWS_SESSION_TOKEN=your_session_token
 ```
 
-1. Install required dependencies:
+or if you are using a shared AWS ~/.aws/config and ~/.aws/credentials, you can set the `AWS_PROFILE` variable in the `.env` file:
 
-```bash
-uv pip install python-dotenv boto3
+```env
+AWS_PROFILE=your_aws_profile
 ```
 
 ## Install uv
@@ -31,8 +34,15 @@ Please follow the instructions at :
 
 https://docs.astral.sh/uv/getting-started/installation/
 
+
+## Install required dependencies
+
+```bash
+uv sync
+```
+
 ## Usage
 
 ``` bash
-uv run main.py
+uv run bedrock_test.py
 ```
